@@ -4,11 +4,19 @@
 	export let type = "";
 	export let value = "";
 	export let placeholder = "";
+	export let classes = "";
 
 	export let required;
 </script>
 
-<div class="space-y-1">
-	<label for={name} class="uppercase text-sm">{label}</label>
-	<input {type} {name} {value} {placeholder} {required} class="block border border-gray-400" />
+<div class={`mb-2 ${classes}`}>
+	<label for={name} class="uppercase font-bold text-gray-600 text-xs">{label}</label>
+	<input
+		{type}
+		{name}
+		{value}
+		{placeholder}
+		{required}
+		class="mt-1 block p-2 border border-gray-400"
+	/>
 </div>
