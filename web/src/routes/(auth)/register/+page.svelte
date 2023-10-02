@@ -8,8 +8,16 @@
 	<title>Register</title>
 </svelte:head>
 
-<form action="" class="max-w-xl mx-auto">
+<div class="py-5 text-center">
+	<h1 class="text-2xl font-semibold">Register</h1>
+	<p>
+		Or <a href="/login" class="underline font-semibold text-blue-700">login</a> if you already have an
+		account
+	</p>
+</div>
+<form action="?/register" method="POST" class="max-w-xl mx-auto">
 	<Input name="name" type="text" label="Name" placeholder="Name" required />
+	<Input name="email" type="text" label="Email" placeholder="Email" required />
 	<Input name="password" type="password" label="Password" placeholder="Password" required />
 	<Input
 		name="confirmPassword"
