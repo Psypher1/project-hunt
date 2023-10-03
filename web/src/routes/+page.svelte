@@ -19,7 +19,7 @@
 	$: scorePercentage = (score / 7) * 100;
 </script>
 
-<form action="" class="">
-	<Input name="name" type="text" label="Name" placeholder="Name" required />
-	<Textarea name="message" label="Message" placeholder="Message" required />
-</form>
+<section>
+	<h1>Project Hunt</h1>
+	<p>A wealth of projects to contribute to</p>
+</section>
