@@ -19,7 +19,7 @@
 	$: scorePercentage = (score / 7) * 100;
 </script>
 
-<section>
-	<h1>Project Hunt</h1>
+<section class="text-center">
+	<h1 class="text-5xl font-bold">Project Hunt</h1>
 	<p>A wealth of projects to contribute to</p>
 </section>
