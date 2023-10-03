@@ -18,16 +18,17 @@
 <form action="?/register" method="POST" class="max-w-xl mx-auto">
 	<Input name="name" type="text" label="Name" placeholder="Name" required />
 	<Input name="email" type="text" label="Email" placeholder="Email" required />
+
 	<Input name="password" type="password" label="Password" placeholder="Password" required />
 	<Input
-		name="confirmPassword"
+		name="passwordConfirm"
 		type="password"
 		label="Confirm Password"
 		placeholder="Confirm Password"
 		required
 	/>
 	<button
-		class="py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
+		class="w-full py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
 		>Register</button
 	>
 </form>

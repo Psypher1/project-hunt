@@ -1,7 +1,7 @@
 <script>
-	/** @type {import('./$types').PageData} */
 	import { Input } from "$ui";
-	import { Textarea } from "$ui";
+
+	// export let form;
 </script>
 
 <svelte:head>
