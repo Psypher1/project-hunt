@@ -10,4 +10,4 @@ We have 2 working directories
 ## Commands
 
 1. To start backend: run `./pocketbase serve` within the folder that holds pocket base
-   iamtheadmin
+2. frontend: run `pnpm dev` in web directory
