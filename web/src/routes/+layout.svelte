@@ -4,6 +4,10 @@
 
 	// let { name, username, email } = data.user;
 	// $: ({ name, username, email } = data.user);
+	let showDropdown = false;
+	function handleShowDropdown() {
+		showDropdown = !showDropdown;
+	}
 </script>
 
 <header class="container mx-auto py-5 border-b border-blue-300 px-4 md:px-0">
@@ -29,11 +33,23 @@
 					class=" py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
 					>Add Project</a
 				>
-				<div class="w-8 h-8 rounded-full bg-blue-800" />
+				<div class="relative">
+					<button
+						on:click={handleShowDropdown}
+						class="rounded p-2 hover:shadow-md hover:shadow-gray-400"
+						>{data.user.name.split(" ")[0]} &darr;</button
+					>
 
-				<form action="/logout" method="post">
-					<button>Logout</button>
-				</form>
+					<form
+						action="/logout"
+						method="post"
+						class={`absolute transition duration-500 ease-out top-10 right-0 shadow-md shadow-gray-500 hover:text-blue-600 bg-white p-3 ${
+							showDropdown ? "block" : "hidden"
+						}`}
+					>
+						<button>Logout</button>
+					</form>
+				</div>
 			</div>
 		{/if}
 	</nav>

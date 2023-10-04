@@ -15,6 +15,6 @@
 		{value}
 		{placeholder}
 		{...$$restProps}
-		class="mt-1 w-full block p-2 border border-gray-400 placeholder:text-gray-300"
+		class="mt-1 w-full block p-2 border border-gray-400 placeholder:text-gray-400"
 	/>
 </div>

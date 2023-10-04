@@ -11,8 +11,8 @@
 <div class="py-5 text-center">
 	<h1 class="text-2xl font-semibold">Login</h1>
 	<p>
-		Or <a href="/register" class="underline font-semibold text-blue-700">register</a> if you already
-		have an account
+		Or <a href="/register" class="underline font-semibold text-blue-700">register</a> if you don't have
+		an account
 	</p>
 </div>
 <form action="?/login" method="POST" class="max-w-xl mx-auto">
