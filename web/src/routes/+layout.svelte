@@ -41,11 +41,13 @@
 					>
 
 					<div
-						class={`absolute transition duration-500 ease-out top-10 right-0 shadow-md shadow-gray-500 font*-semibold border border-gray-400 bg-white p-2 space-y-2 ${
+						class={`absolute transition duration-500 ease-out top-10 right-0 shadow-md shadow-gray-500 font-medium border border-gray-400 bg-white p-2 space-y-2 ${
 							showDropdown ? "block" : "hidden"
 						}`}
 					>
-						<a href="/my/profile" class="hover:bg-blue-300 py-1 px-4">Profile</a>
+						<a on:click={handleShowDropdown} href="/my/profile" class="hover:bg-blue-300 py-1 px-4"
+							>Profile</a
+						>
 
 						<form action="/logout" method="post">
 							<button class="py-1 px-4 hover:bg-gray-200">Logout</button>
