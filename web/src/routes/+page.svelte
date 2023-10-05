@@ -6,4 +6,3 @@
 	<h1 class="text-5xl font-bold">Project Hunt</h1>
 	<p>A wealth of projects to contribute to</p>
 </section>
-<p class="text-balance text-3xl">Lorem ipsum dolor sit amet consectetur.</p>

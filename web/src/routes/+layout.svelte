@@ -36,19 +36,21 @@
 				<div class="relative">
 					<button
 						on:click={handleShowDropdown}
-						class="rounded p-2 hover:shadow-md hover:shadow-gray-400"
+						class="rounded py-2 px-4 hover:shadow-md hover:shadow-gray-400 font-semibold text-xl"
 						>{data.user.name.split(" ")[0]} &darr;</button
 					>
 
-					<form
-						action="/logout"
-						method="post"
-						class={`absolute transition duration-500 ease-out top-10 right-0 shadow-md shadow-gray-500 hover:text-blue-600 bg-white p-3 ${
+					<div
+						class={`absolute transition duration-500 ease-out top-10 right-0 shadow-md shadow-gray-500 font*-semibold border border-gray-400 bg-white p-2 space-y-2 ${
 							showDropdown ? "block" : "hidden"
 						}`}
 					>
-						<button>Logout</button>
-					</form>
+						<a href="/my/profile" class="hover:bg-blue-300 py-1 px-4">Profile</a>
+
+						<form action="/logout" method="post">
+							<button class="py-1 px-4 hover:bg-gray-200">Logout</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		{/if}
@@ -58,3 +60,4 @@
 <main class="container mx-auto py-8 px-6 sm:px-0">
 	<slot />
 </main>
+0
