@@ -8,7 +8,7 @@
 	<title>Profile - {data?.user?.name}</title>
 </svelte:head>
 
-<h2 class="text-xl font-semibold">Update Your Profile</h2>
+<h2 class="text-lg font-semibold">Update Your Profile</h2>
 
 <form action="?/updateProfile" method="post" class="mt-8">
 	<Input name="username" type="text" label="Username" value={data?.user?.username} disabled />

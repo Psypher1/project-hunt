@@ -2,6 +2,7 @@
 	import { page } from "$app/stores";
 	const links = [
 		{ label: "Profile", href: "/my/profile" },
+		{ label: "Account", href: "/my/account" },
 		{ label: "Settings", href: "/my/settings" }
 	];
 
@@ -18,8 +19,8 @@
 		{#each links as link}
 			<a
 				href={link.href}
-				class={`mb-2 py-2 px-6 block bg-gray-200 hover:bg-blue-300 rounded ${
-					$page.url.pathname === link.href ? "bg-blue-400 text-blue-50" : ""
+				class={`mb-2 py-2 px-6 block bg-gray-200 hover:bg-blue-400 rounded font-semibold ${
+					$page.url.pathname === link.href ? "bg-blue-500 text-white " : ""
 				}`}>{link.label}</a
 			>
 		{/each}
