@@ -19,7 +19,7 @@
 		{disabled}
 		{...$$restProps}
 		class={`mt-1 w-full block p-2 border border-gray-400 placeholder:text-gray-400 ${
-			disabled ? "bg-gray-300 font-semibold" : ""
+			disabled ? "bg-gray-300 font-medium" : ""
 		}`}
 	/>
 </div>

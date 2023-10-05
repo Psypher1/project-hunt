@@ -1,7 +1,29 @@
 <script>
+	import { enhance, applyAction } from "$app/forms";
+	import { invalidateAll } from "$app/navigation";
+
 	import { Input } from "$ui";
 
 	export let data;
+
+	let loading;
+	$: loading = false;
+
+	function submitUpdateHandler() {
+		loading = true;
+		return async ({ result }) => {
+			switch (result.type) {
+				case "success":
+					await invalidateAll();
+					break;
+				case "error":
+					break;
+				default:
+					await applyAction(result);
+			}
+			loading = false;
+		};
+	}
 </script>
 
 <svelte:head>
@@ -10,11 +32,11 @@
 
 <h2 class="text-lg font-semibold">Update Your Profile</h2>
 
-<form action="?/updateProfile" method="post" class="mt-8">
+<form action="?/updateProfile" method="post" use:enhance={submitUpdateHandler} class="mt-8">
 	<Input name="username" type="text" label="Username" value={data?.user?.username} disabled />
-	<Input name="name" type="text" label="Name" value={data?.user?.name} />
+	<Input name="name" type="text" label="Name" value={data?.user?.name} disabled={loading} />
 	<button
 		class="w-full py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
-		>Update Profile</button
+		disabled={loading}>{loading ? "Loading..." : "Update Profile"}</button
 	>
 </form>
