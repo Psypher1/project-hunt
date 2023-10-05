@@ -33,6 +33,7 @@
 <h2 class="text-lg font-semibold">Update Your Profile</h2>
 
 <form action="?/updateProfile" method="post" use:enhance={submitUpdateHandler} class="mt-8">
+	<div class="w-32 h-32 rounded-full bg-blue-800 mb-2" />
 	<Input name="username" type="text" label="Username" value={data?.user?.username} disabled />
 	<Input name="name" type="text" label="Name" value={data?.user?.name} disabled={loading} />
 	<button
