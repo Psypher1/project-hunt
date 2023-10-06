@@ -62,4 +62,3 @@
 <main class="container mx-auto py-8 px-6 sm:px-0">
 	<slot />
 </main>
-0
