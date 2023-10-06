@@ -6,7 +6,7 @@
 	export let placeholder = "";
 	export let classes = "";
 
-	export let disabled;
+	export let disabled = false;
 </script>
 
 <div class={`mb-2 ${classes}`}>
