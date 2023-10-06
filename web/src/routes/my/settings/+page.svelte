@@ -3,16 +3,19 @@
 	import { Modal } from "$features";
 	import { Input } from "$ui";
 
-	let showModal = false;
+	let emailModalOpen;
+	$: emailModalOpen = false;
 
 	function handleToggleModal() {
-		showModal = !showModal;
+		emailModalOpen = !emailModalOpen;
 	}
 	function handleTogglePasswordModal() {
-		showModal = !showModal;
+		emailModalOpen = !emailModalOpen;
 	}
-	export let data;
+	export let form;
 </script>
+
+<!-- NOTE: THIS DOES NOT WORK CURRENTLY -->
 
 <h2 class="text-lg font-semibold">Configure Your Settings</h2>
 
@@ -23,10 +26,10 @@
 		>Change Email</button
 	>
 
-	<Modal title="Email Change" open={showModal} on:close={handleToggleModal}>
+	<Modal title="Email Change" open={emailModalOpen} on:close={handleToggleModal}>
 		<svelte:fragment slot="body">
-			<form action="" class=" mx-auto">
-				<Input name="email" label="Change email" type="text" value={data?.user?.email} />
+			<form action="?/updateEmail" class=" mx-auto">
+				<Input name="email" label="Change email" type="text" value={form?.data?.email} />
 				<button
 					class="w-full py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
 					>Change Email</button
