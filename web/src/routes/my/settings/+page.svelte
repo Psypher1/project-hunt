@@ -31,8 +31,8 @@
 
 	<Modal title="Email Change" open={emailModalOpen} on:close={handleToggleModal}>
 		<svelte:fragment slot="body">
-			<form action="?/updateEmail" class=" mx-auto">
-				<Input name="email" label="Change email" type="text" value={form?.data?.email} />
+			<form action="?/updateEmail" class="mx-auto">
+				<Input name="email" label="Eneter New Email" type="text" value={form?.data?.email} />
 				<button
 					class="w-full py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
 					>Update My Email</button
