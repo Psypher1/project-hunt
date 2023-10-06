@@ -52,7 +52,15 @@
 	<Modal title="Change Password" open={passwordModalOpen} on:close={handleTogglePasswordModal}>
 		<svelte:fragment slot="body">
 			<form action="">
-				<Input name="password" label="Enter New Password" type="text" />
+				<Input name="oldPassword" label="Old Password" type="text" />
+				<Input name="password" type="password" label="Password" placeholder="Password" required />
+				<Input
+					name="passwordConfirm"
+					type="password"
+					label="Confirm New Password"
+					placeholder="Confirm Password"
+					required
+				/>
 				<Button classes="w-full">Change My Password</Button>
 			</form>
 		</svelte:fragment>

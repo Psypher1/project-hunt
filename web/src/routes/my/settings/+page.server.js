@@ -17,5 +17,9 @@ export const actions = {
 		return {
 			success: true
 		};
+	},
+
+	updatePassword: async ({ locals, request }) => {
+		const data = Object.fromEntries(await request.formData());
 	}
 };
