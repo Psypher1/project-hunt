@@ -2,12 +2,14 @@
 	/** @type {import('./$types').PageData} */
 	import { Modal } from "$features";
 	import { Input, Button } from "$ui";
+	export let form;
+	export let data;
 
 	let emailModalOpen;
 	$: emailModalOpen = false;
 
 	let passwordModalOpen;
-	$: passwordModalOpen;
+	$: passwordModalOpen = false;
 
 	function handleToggleModal() {
 		emailModalOpen = !emailModalOpen;
@@ -15,8 +17,11 @@
 	function handleTogglePasswordModal() {
 		passwordModalOpen = !passwordModalOpen;
 	}
-	export let form;
 </script>
+
+<svelte:head>
+	<title>Settings - {data?.user?.name}</title>
+</svelte:head>
 
 <!-- NOTE: THIS DOES NOT WORK CURRENTLY -->
 
@@ -53,7 +58,13 @@
 		<svelte:fragment slot="body">
 			<form action="">
 				<Input name="oldPassword" label="Old Password" type="text" />
-				<Input name="password" type="password" label="Password" placeholder="Password" required />
+				<Input
+					name="password"
+					type="password"
+					label="New Password"
+					placeholder="Password"
+					required
+				/>
 				<Input
 					name="passwordConfirm"
 					type="password"

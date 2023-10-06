@@ -37,6 +37,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Account - {data?.user?.name}</title>
+</svelte:head>
+
 <h2 class="text-lg font-semibold">Your Account</h2>
 
 <section class="mt-8">
