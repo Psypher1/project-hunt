@@ -9,7 +9,7 @@
 </svelte:head>
 
 <div class="py-5 text-center">
-	<h1 class="text-2xl font-semibold">Login</h1>
+	<h1 class="text-2xl font-bold">Login</h1>
 	<p>
 		Or <a href="/register" class="underline font-semibold text-blue-700">register</a> if you don't have
 		an account
