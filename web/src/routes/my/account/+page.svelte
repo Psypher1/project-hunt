@@ -13,11 +13,11 @@
 	let showModal;
 	$: showModal = false;
 
-	function handleToggleModal() {
+	function toggleUsernameModal() {
 		showModal = !showModal;
 	}
 
-	function submitUpdatUsername() {
+	function submitUpdateUsername() {
 		loading = true;
 		showModal = true;
 
@@ -37,27 +37,23 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Account - {data?.user?.name}</title>
-</svelte:head>
-
 <h2 class="text-lg font-semibold">Your Account</h2>
 
 <section class="mt-8">
 	<Input name="username" type="text" label="Username" value={data?.user?.username} disabled />
 
 	<button
-		on:click={handleToggleModal}
+		on:click={toggleUsernameModal}
 		class="py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
 		>Change Username</button
 	>
 
-	<Modal title="Username Change" open={showModal} on:close={handleToggleModal}>
+	<Modal title="Username Change" open={showModal} on:close={toggleUsernameModal}>
 		<svelte:fragment slot="body">
 			<form
 				action="?/updateUsername"
 				method="post"
-				use:enhance={submitUpdatUsername}
+				use:enhance={submitUpdateUsername}
 				class=" mx-auto"
 			>
 				<Input

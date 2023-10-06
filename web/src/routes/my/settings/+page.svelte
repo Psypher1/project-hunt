@@ -1,7 +1,10 @@
 <script>
-	/** @type {import('./$types').PageData} */
+	import { enhance, applyAction } from "$app/forms";
+	import { invalidateAll } from "$app/navigation";
+
 	import { Modal } from "$features";
 	import { Input, Button } from "$ui";
+
 	export let form;
 	export let data;
 
@@ -11,11 +14,33 @@
 	let passwordModalOpen;
 	$: passwordModalOpen = false;
 
-	function handleToggleModal() {
+	let loading;
+	$: loading = false;
+
+	function togglEmailModal() {
 		emailModalOpen = !emailModalOpen;
 	}
-	function handleTogglePasswordModal() {
+	function togglePasswordModal() {
 		passwordModalOpen = !passwordModalOpen;
+	}
+
+	function submitUpdateEmail() {
+		loading = true;
+		emailModalOpen = true;
+
+		return async ({ result }) => {
+			switch (result.type) {
+				case "success":
+					await invalidateAll();
+					emailModalOpen = false;
+					break;
+				case "error":
+					break;
+				default:
+					await applyAction(result);
+			}
+			loading = false;
+		};
 	}
 </script>
 
@@ -29,14 +54,14 @@
 
 <section class="mt-8">
 	<button
-		on:click={handleToggleModal}
+		on:click={togglEmailModal}
 		class="py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
 		>Change Email</button
 	>
 
-	<Modal title="Email Change" open={emailModalOpen} on:close={handleToggleModal}>
+	<Modal title="Email Change" open={emailModalOpen} on:close={togglEmailModal}>
 		<svelte:fragment slot="body">
-			<form action="?/updateEmail" class="mx-auto">
+			<form action="?/updateEmail" method="post" use:enhance={submitUpdateEmail} class="mx-auto">
 				<Input name="email" label="Eneter New Email" type="text" value={form?.data?.email} />
 				<button
 					class="w-full py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
@@ -49,22 +74,16 @@
 
 <section class="mt-8">
 	<button
-		on:click={handleTogglePasswordModal}
+		on:click={togglePasswordModal}
 		class="py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
 		>Change Password</button
 	>
 
-	<Modal title="Change Password" open={passwordModalOpen} on:close={handleTogglePasswordModal}>
+	<Modal title="Change Password" open={passwordModalOpen} on:close={togglePasswordModal}>
 		<svelte:fragment slot="body">
 			<form action="">
 				<Input name="oldPassword" label="Old Password" type="text" />
-				<Input
-					name="password"
-					type="password"
-					label="New Password"
-					placeholder="Password"
-					required
-				/>
+				<Input name="password" type="password" label="NPassword" placeholder="Password" required />
 				<Input
 					name="passwordConfirm"
 					type="password"
