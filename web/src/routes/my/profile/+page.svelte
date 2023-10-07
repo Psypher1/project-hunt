@@ -33,24 +33,12 @@
 
 <h2 class="text-lg font-semibold">Update Your Profile</h2>
 
-<form
-	action="?/updateProfile"
-	method="post"
-	enctype="multipart/form-data"
-	use:enhance={submitUpdateHandler}
-	class="mt-8"
->
+<form action="?/updateProfile" method="post" use:enhance={submitUpdateHandler} class="mt-8">
 	<!-- <div class="w-32 h-32 rounded-full bg-blue-800 mb-2" /> -->
 	<div class="mb-2">
-		<img
-			src={data?.user?.avatar
-				? getImageUrl(data?.user?.collectionId, data.user?.id, data.user?.avatar)
-				: "/images/meerkat.jpg"}
-			class="w-32 h-32 object-cover rounded-full"
-			alt="user avatar"
-		/>
+		<img src="/images/meerkat.jpg" class="w-32 h-32 object-cover rounded-full" alt="user avatar" />
 
-		<Input name="avatar" type="file" accept="image/*" />
+		<!-- <Input name="avatar" type="file" accept="image/*" /> -->
 	</div>
 	<Input name="username" type="text" label="Username" value={data?.user?.username} disabled />
 	<Input name="name" type="text" label="Name" value={data?.user?.name} disabled={loading} />

@@ -16,12 +16,10 @@ export const actions = {
 
 		try {
 			// destructure to ensure things get updated after from submission
-			const { name, username, avatar } = await locals.pb
-				.collection("users")
-				.update(locals?.user?.id, data);
+			const { name, username } = await locals.pb.collection("users").update(locals?.user?.id, data);
 
 			locals.user.name = name;
-			locals.user.avatar = avatar;
+			// locals.user.avatar = avatar;
 			locals.user.usernme = username;
 		} catch (err) {
 			console.log("Error", err);
