@@ -4,11 +4,11 @@ import { error, redirect } from "@sveltejs/kit";
 
 export const actions = {
 	register: async ({ locals, request }) => {
-		// we run Object.fromEntries to avoid having to individually specifying form fields
 		// const formData = await request.formData()
 		// const data = Object.fromEntries({...formData})
 		// let username = geenerateUsername(body.name.split(" ").join("")).toLowwercase();
 
+		// we run Object.fromEntries to avoid having to individually specifying form fields
 		const body = Object.fromEntries(await request.formData());
 		let username = body.name.split(" ").join("");
 		username = username.toLowerCase();
