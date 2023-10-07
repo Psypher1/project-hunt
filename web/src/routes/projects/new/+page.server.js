@@ -1,5 +1,6 @@
 /** @type {import('./$types').PageServerLoad} */
 import { error, redirect } from "@sveltejs/kit";
+import { slugify } from "$lib/helpers";
 
 export async function load({ locals }) {
 	if (!locals.pb.authStore.isValid) {
@@ -19,6 +20,9 @@ export const actions = {
 		}
 		// to ensure user is passed with request
 		formData.append("user", locals.user.id);
+
+		let title = formData.get("title");
+		formData.append("slug", slugify(title));
 
 		try {
 			await locals.pb.collection("projects").create(formData);
