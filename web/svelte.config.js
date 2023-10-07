@@ -4,7 +4,7 @@ import { vitePreprocess } from "@sveltejs/kit/vite";
 const config = {
 	kit: {
 		alias: {
-			$lib: "src/lib",
+			$lib: "src/lib/*",
 			$ui: "src/ui",
 			$features: "src/features"
 		},
