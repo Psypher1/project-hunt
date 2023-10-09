@@ -2,7 +2,14 @@
 	import "../style.css";
 	export let data;
 
+	import { page } from "$app/stores";
+
 	import { getImageUrl } from "$lib/helpers";
+
+	const links = [
+		{ label: "My Projects", href: "/my/projects" },
+		{ label: "Profile", href: "/my/profile" }
+	];
 
 	// let { name, username, email } = data.user;
 	// $: ({ name, username, email } = data.user);
@@ -55,12 +62,21 @@
 							showDropdown ? "block" : "hidden"
 						}`}
 					>
-						<a on:click={handleShowDropdown} href="/my/profile" class="hover:bg-blue-300 py-1 px-5"
+						<!-- <a on:click={handleShowDropdown} href="/my/profile" class="hover:bg-blue-300 py-1 px-5"
 							>Profile</a
-						>
+						> -->
+						{#each links as link}
+							<a
+								on:click={handleShowDropdown}
+								href={link.href}
+								class={`hover:bg-blue-400 block py-2 px-5 whitespace-nowrap border border-gray-300 rounded font-medium ${
+									$page.url.pathname === link.href ? "bg-blue-500 text-white " : ""
+								}`}>{link.label}</a
+							>
+						{/each}
 
 						<form action="/logout" method="post">
-							<button class="py-1 px-5 hover:bg-gray-200">Logout</button>
+							<button class="py-1 px-5 block w-full hover:bg-gray-200">Logout</button>
 						</form>
 					</div>
 				</div>
