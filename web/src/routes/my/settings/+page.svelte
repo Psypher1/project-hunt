@@ -53,13 +53,12 @@
 <h2 class="text-lg font-semibold">Configure Your Settings</h2>
 
 <section class="mt-8">
-	<button
-		on:click={togglEmailModal}
-		class="py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
-		>Change Email</button
+	<Modal
+		title="Email Change"
+		buttonText="Change Email"
+		open={emailModalOpen}
+		on:close={togglEmailModal}
 	>
-
-	<Modal title="Email Change" open={emailModalOpen} on:close={togglEmailModal}>
 		<svelte:fragment slot="body">
 			<form action="?/updateEmail" method="post" use:enhance={submitUpdateEmail} class="mx-auto">
 				<Input name="email" label="Eneter New Email" type="text" value={form?.data?.email} />
@@ -73,13 +72,12 @@
 </section>
 
 <section class="mt-8">
-	<button
-		on:click={togglePasswordModal}
-		class="py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
-		>Change Password</button
+	<Modal
+		title="Change Password"
+		buttonText="Change Password"
+		open={passwordModalOpen}
+		on:close={togglePasswordModal}
 	>
-
-	<Modal title="Change Password" open={passwordModalOpen} on:close={togglePasswordModal}>
 		<svelte:fragment slot="body">
 			<form action="">
 				<Input name="oldPassword" label="Old Password" type="text" />

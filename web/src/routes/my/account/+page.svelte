@@ -42,13 +42,18 @@
 <section class="mt-8">
 	<Input name="username" type="text" label="Username" value={data?.user?.username} disabled />
 
-	<button
+	<!-- <button
 		on:click={toggleUsernameModal}
 		class="py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
 		>Change Username</button
-	>
+	> -->
 
-	<Modal title="Username Change" open={showModal} on:close={toggleUsernameModal}>
+	<Modal
+		title="Username Change"
+		buttonText="Change Username"
+		open={showModal}
+		on:close={toggleUsernameModal}
+	>
 		<svelte:fragment slot="body">
 			<form
 				action="?/updateUsername"
