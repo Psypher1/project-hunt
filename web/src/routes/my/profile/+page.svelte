@@ -38,7 +38,7 @@
 	<div class="mb-2">
 		<img src="/images/meerkat.jpg" class="w-32 h-32 object-cover rounded-full" alt="user avatar" />
 
-		<!-- <Input name="avatar" type="file" accept="image/*" /> -->
+		<Input name="avatar" type="file" accept="image/*" />
 	</div>
 	<Input name="username" type="text" label="Username" value={data?.user?.username} disabled />
 	<Input name="name" type="text" label="Name" value={data?.user?.name} disabled={loading} />

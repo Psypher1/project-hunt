@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>Register</title>
+	<title>Login</title>
 </svelte:head>
 
 <div class="py-5 text-center">
