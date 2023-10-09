@@ -15,21 +15,33 @@
 </script>
 
 <article class="mb-5 border border-gray=300 shadow-md shadow-gray-400 p-4">
-	<img
-		src={project.thumbnail
-			? getImageUrl(project.collectionId, project.id, project.thumbnail, "100x100")
-			: ""}
-		alt={project.title}
-		class="w-8 h-8"
-	/>
+	{#if project.thumbnail}
+		<img
+			src={project.thumbnail
+				? getImageUrl(project.collectionId, project.id, project.thumbnail, "100x100")
+				: ""}
+			alt={project.title}
+			class="w-8 h-8"
+		/>
+	{/if}
 	<h3 class="text-xl font-semibold hover:text-blue-800">
 		<a href={`/projects/${project.id}`}>{project.title}</a>
 	</h3>
 	<p class="text-gray-800">{project.tagline}</p>
 
-	<a href={`/projects/${project.id}/edit`}>Edit</a>
-	<button on:click={toggleDeleteModal} class="text-red-600">Delete</button>
-
+	<div class="flex mt-4 gap-4">
+		<a
+			href={`/projects/${project.id}/edit`}
+			class="py-2 px-4 block border border-blue-700 rounded text-blue-700 hover:bg-blue-700 hover:text-blue-50 transition duration-300"
+			>&#x270E; Edit</a
+		>
+		<button
+			on:click={toggleDeleteModal}
+			class="py-2 px-4 text-red-600 rounded border border-red-600 transition duration-300 hover:bg-red-600 hover:text-red-50"
+		>
+			Delete</button
+		>
+	</div>
 	<Modal title={`YEET ${project.title}`} open={deleteModalOpen} on:close={toggleDeleteModal}>
 		<svelte:fragment slot="body">
 			<h3 class="text-lg font-semibold">

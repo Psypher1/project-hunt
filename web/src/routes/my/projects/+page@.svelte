@@ -18,7 +18,7 @@
 	<h1 class="text-3xl font-bold">My Projects</h1>
 </div>
 
-<section class="">
+<section class="grid grid-cols-3 gap-6">
 	{#if projects.length === 0}
 		<div class="text-center">
 			<h2 class="text-xl mb-2">It seems that you don't have any projects</h2>
