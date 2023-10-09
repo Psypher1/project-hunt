@@ -41,5 +41,14 @@ export const actions = {
 
 		throw redirect(303, `/projects/${params.projectId}`);
 	},
-	deleteThumbnail: async () => {}
+	deleteThumbnail: async function ({ locals, params }) {
+		// const formData = await request.formData();
+
+		try {
+			await locals.pb.collection("projects").update(params.projectId, { thumbnail: null });
+		} catch (err) {
+			console.log("Error:", err);
+			throw error(err.status, err.message);
+		}
+	}
 };

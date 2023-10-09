@@ -44,18 +44,22 @@
 	/>
 	<div class="flex gap-12 mb-3 items-center">
 		{#if project.thumbnail}
-			<div>
+			<div class="flex flex-col gap-2 justify-center">
 				<img
 					src={getImageUrl(project.collectionId, project.id, project.thumbnail, "100x100")}
 					alt=""
+					class="w-8 h-8"
 				/>
-				<button formaction="?/delteThumbnail">del</button>
+				<button
+					formaction="?/deleteThumbnail"
+					class=" text-red-500 bg-red-100 py-1 px-3 rounded font-semibold">del</button
+				>
 			</div>
 		{/if}
 		<Input name="thumbnail" type="file" label="Project Thumbnail" />
 	</div>
 	<button
 		class="w-full py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
-		>Add Project</button
+		>Update Project</button
 	>
 </form>

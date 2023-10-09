@@ -11,7 +11,7 @@ export async function load({ locals, params }) {
 			return project;
 		} catch (err) {
 			console.log("Error: ", err);
-			throw error(err.status, err.message);
+			throw error(err.status, "Ain't no project here mayne");
 		}
 	}
 
