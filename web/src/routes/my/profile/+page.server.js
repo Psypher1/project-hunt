@@ -10,16 +10,18 @@ export const actions = {
 		let data = await request.formData();
 
 		const userAvatar = data.get("avatar");
-		if (userAvatar === 0) {
+		if (userAvatar.size === 0) {
 			data.delete("avatar");
 		}
 
 		try {
 			// destructure to ensure things get updated after from submission
-			const { name, username } = await locals.pb.collection("users").update(locals?.user?.id, data);
+			const { name, username, avatar } = await locals.pb
+				.collection("users")
+				.update(locals?.user?.id, data);
 
 			locals.user.name = name;
-			// locals.user.avatar = avatar;
+			locals.user.avatar = avatar;
 			locals.user.usernme = username;
 		} catch (err) {
 			console.log("Error", err);
