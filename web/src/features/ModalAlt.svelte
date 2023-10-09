@@ -5,7 +5,6 @@
 
 	export let open = false;
 	export let title;
-	export let buttonText;
 
 	function clickOutside(element) {
 		function handleClick(event) {
@@ -35,11 +34,6 @@
 	}
 </script>
 
-<button
-	on:click={openModal}
-	class="py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
-	>{buttonText}</button
->
 {#if open}
 	<section
 		class="modal z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center p-4 lg:p-0"
@@ -48,7 +42,7 @@
 		<div class="modal-overlay fixed h-full w-full bg-gray-900 opacity-50" />
 		<!-- modal content -->
 		<div
-			transition:scale
+			transition:slide
 			use:clickOutside
 			on:outside={closeModal}
 			use:clickOutside

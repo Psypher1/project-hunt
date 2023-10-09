@@ -3,7 +3,7 @@
 
 	import { getImageUrl } from "$lib/helpers";
 
-	import { Modal } from "$features";
+	import { Modal, ModalAlt } from "$features";
 	import { Input } from "$ui";
 
 	let deleteModalOpen;
@@ -42,7 +42,7 @@
 			Delete</button
 		>
 	</div>
-	<Modal title={`YEET ${project.title}`} open={deleteModalOpen} on:close={toggleDeleteModal}>
+	<ModalAlt title={`YEET ${project.title}`} open={deleteModalOpen} on:close={toggleDeleteModal}>
 		<svelte:fragment slot="body">
 			<h3 class="text-lg font-semibold">
 				Are you sure you want to yeet this one? It can't be unyeeted afterwards
@@ -55,5 +55,5 @@
 				>
 			</form>
 		</svelte:fragment>
-	</Modal>
+	</ModalAlt>
 </article>
