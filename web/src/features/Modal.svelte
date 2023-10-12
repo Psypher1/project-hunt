@@ -56,9 +56,7 @@
 		>
 			<div class="head bg-gray-200 p-4 flex justify-between">
 				<h3 class="text-lg font-semibold">{title}</h3>
-				<button on:click={() => dispatch("close")} class="w-8 h-8 text-red-900 bg-red-300 rounded"
-					>X</button
-				>
+				<button on:click={closeModal} class="w-8 h-8 text-red-900 bg-red-300 rounded">X</button>
 			</div>
 			<div class="content p-6">
 				<slot name="body" />
