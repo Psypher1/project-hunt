@@ -1,8 +1,31 @@
 <script>
+	import { enhance, applyAction } from "$app/forms";
+	import { invalidateAll } from "$app/navigation";
+
 	export let data;
 	let { project } = data;
+
 	import { getImageUrl } from "$lib/helpers";
 	import { Input, Textarea } from "$ui";
+
+	let loading;
+	$: loading = false;
+
+	function editProjectHandler() {
+		loading = true;
+		return async ({ result }) => {
+			switch (result.type) {
+				case "success":
+					await invalidateAll();
+					break;
+				case "error":
+					break;
+				default:
+					await applyAction(result);
+			}
+			loading = false;
+		};
+	}
 </script>
 
 <div class="py-5 text-center">
@@ -10,7 +33,13 @@
 	<p>How are we updating things?</p>
 </div>
 
-<form action="?/updateProject" method="POST" enctype="multipart/form-data" class="max-w-xl mx-auto">
+<form
+	action="?/updateProject"
+	method="POST"
+	use:enhance={editProjectHandler}
+	enctype="multipart/form-data"
+	class="max-w-xl mx-auto"
+>
 	<Input
 		name="title"
 		type="text"
@@ -25,6 +54,7 @@
 		value={project.tagline ?? ""}
 		label="Project Tagline"
 		placeholder="Project Tagline"
+		disabled={loading}
 		required
 	/>
 	<Input
@@ -33,6 +63,7 @@
 		value={project.link ?? ""}
 		label="Project Link"
 		placeholder="Project Link"
+		disabled={loading}
 		required
 	/>
 	<Textarea
@@ -41,6 +72,7 @@
 		value={project.description ?? ""}
 		label="Project Description"
 		placeholder="Project Description"
+		disabled={loading}
 	/>
 	<div class="flex gap-12 mb-3 items-center">
 		{#if project.thumbnail}
