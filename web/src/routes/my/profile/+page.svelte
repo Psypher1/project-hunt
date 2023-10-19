@@ -14,7 +14,7 @@
 
 		if (files.length > 0) {
 			const src = URL.createObjectURL(files[0]);
-			const preview = document.querySelector("avatar-preview");
+			const preview = document.querySelector(".avatar-preview");
 			preview.src = src;
 		}
 	}
@@ -59,7 +59,7 @@
 				? getImageUrl(data?.user?.collectionId, data.user?.id, data.user?.avatar)
 				: "/images/meerkat.jpg"}
 			class="avatar-preview w-32 h-32 object-cover rounded-full"
-			alt="user avatar"
+			alt="avatar"
 		/>
 		<!-- https://ui-avatars.com/api/?name=${user.name} -->
 		<Input name="avatar" type="file" accept="image/*" on:change={showPreview} />
