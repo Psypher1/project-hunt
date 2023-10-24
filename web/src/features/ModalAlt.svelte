@@ -42,7 +42,7 @@
 		<div class="modal-overlay fixed h-full w-full bg-gray-900 opacity-50" />
 		<!-- modal content -->
 		<div
-			transition:slide
+			transition:scale
 			use:clickOutside
 			on:outside={closeModal}
 			use:clickOutside

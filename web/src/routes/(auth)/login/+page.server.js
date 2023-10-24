@@ -13,6 +13,7 @@ export const actions = {
 			await locals.pb.collection("users").authWithPassword(body.email, body.password);
 
 			/* 
+			! For the fact that this requires an email service, I most likely won't implement
 			if did the email verification stuff
 			if (!locals.pb?.authStore?.model.verified) {
 				locals.pb.authStore.clear();
