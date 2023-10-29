@@ -1,7 +1,5 @@
 <script>
 	import { Input } from "$ui";
-
-	export let form;
 </script>
 
 <svelte:head>

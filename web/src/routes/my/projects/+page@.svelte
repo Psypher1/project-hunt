@@ -28,7 +28,7 @@
 		>
 	</div>
 {:else}
-	<section class="grid grid-cols-3 gap-6">
+	<section class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
 		{#each projects as project}
 			<ProjectCard {project} />
 		{/each}

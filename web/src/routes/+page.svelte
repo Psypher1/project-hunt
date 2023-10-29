@@ -7,11 +7,7 @@
 	console.log(data);
 </script>
 
-<svelte:head>
-	<title>Project Hunt</title>
-
-	<meta name="description" content="Find projects to contribute" />
-</svelte:head>
+<Head description="Find projects to contribute" />
 
 <section class="text-center">
 	<h1 class="text-5xl font-bold">Project Hunt</h1>
