@@ -1,5 +1,7 @@
 <script>
 	import "../style.css";
+	import { onMount } from "svelte";
+	import toast, { Toaster } from "svelte-french-toast";
 	export let data;
 
 	import { page } from "$app/stores";
@@ -17,8 +19,16 @@
 	function handleShowDropdown() {
 		showDropdown = !showDropdown;
 	}
+
+	onMount(() => {
+		toast.success("This site uses cookies to enhance user experience.", {
+			icon: "ℹ️",
+			position: "bottom-center"
+		});
+	});
 </script>
 
+<Toaster />
 <header class="container mx-auto py-4 border-b border-blue-300 px-4 md:px-0">
 	<nav class="flex items-center justify-between">
 		<a href="/" class="text-2xl font-semibold text-blue-800">Project Hunt</a>

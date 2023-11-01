@@ -4,7 +4,6 @@
 
 	export let data;
 	const { projects } = data;
-	console.log(data);
 </script>
 
 <Head description="Find projects to contribute" />
