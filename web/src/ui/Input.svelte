@@ -7,6 +7,8 @@
 	export let classes = "";
 
 	export let disabled = false;
+
+	export let errors;
 </script>
 
 <div class={`mb-2 ${classes}`}>
@@ -22,4 +24,9 @@
 			disabled ? "bg-gray-300 font-medium" : ""
 		}`}
 	/>
+	{#if errors}
+		{#each errors as error}
+			<label for={name}>{error}</label>
+		{/each}
+	{/if}
 </div>
