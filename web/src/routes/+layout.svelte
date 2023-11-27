@@ -2,6 +2,7 @@
 	import "../style.css";
 	import { onMount } from "svelte";
 	import toast, { Toaster } from "svelte-french-toast";
+	import toast_ from "svelte-french-toast";
 	export let data;
 
 	import { page } from "$app/stores";
@@ -22,8 +23,8 @@
 
 	onMount(() => {
 		toast.success("This site uses cookies to enhance user experience.", {
-			icon: "ℹ️",
-			position: "bottom-center"
+			icon: "ℹ️"
+			// position: "bottom-center"
 		});
 	});
 </script>

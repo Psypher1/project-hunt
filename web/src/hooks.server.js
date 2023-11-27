@@ -14,21 +14,24 @@ export async function handle({ event, resolve }) {
 	 */
 
 	try {
-		// get up to date cook
+		// get up to date cookie
 		if (event.locals.pb.authStore.isValid) {
 			await event.locals.pb.collection("users").authRefresh();
+			//the structure returned from `locals.pb.authStore.model` is not correact format, it has to be serialized
+			event.locals.user = serialiseNonPOJO(event.locals.pb.authStore.model);
 		}
 	} catch (_) {
 		// clear the auth store on failed refresh
 		event.locals.pb.authStore.clear();
-	}
-
-	if (event.locals.pb.authStore.isValid) {
-		//the structure returned from `locals.pb.authStore.model` is not correact format, it has to be serialized
-		event.locals.user = serialiseNonPOJO(event.locals.pb.authStore.model);
-	} else {
 		event.locals.user = undefined;
 	}
+
+	// if (event.locals.pb.authStore.isValid) {
+
+	// 	event.locals.user = serialiseNonPOJO(event.locals.pb.authStore.model);
+	// } else {
+	// 	event.locals.user = undefined;
+	// }
 
 	const response = await resolve(event);
 
