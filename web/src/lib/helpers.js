@@ -29,6 +29,26 @@ function getImageUrl(collectionId, recordId, filename, size = "0x0") {
 	return `${dbUrl}/api/files/${collectionId}/${recordId}/${filename}?thumb=${size}`;
 }
 
+async function validateData(formData, schema) {
+	const body = Object.fromEntries(formData);
+
+	try {
+		const data = schema.parse(body);
+		return {
+			formData: data,
+			errors: null
+		};
+	} catch (err) {
+		console.log("Errors: ", err);
+		const errors = err.flatten();
+
+		return {
+			formData: body,
+			errors
+		};
+	}
+}
+
 function geenerateUsername(name) {
 	const id = randomBytes(2).toString("hex");
 	return `${name.slice(0, 5)}${id}`;
@@ -39,4 +59,4 @@ export const generateUserAlt = (name) => {
 	return `${name.slice(0, 5)}${id}`;
 };
 
-export { serialiseNonPOJO, geenerateUsername, slugify, getImageUrl };
+export { serialiseNonPOJO, geenerateUsername, slugify, getImageUrl, validateData };

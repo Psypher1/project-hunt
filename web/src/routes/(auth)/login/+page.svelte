@@ -1,5 +1,6 @@
 <script>
 	import { Input } from "$ui";
+	export let form;
 </script>
 
 <svelte:head>
@@ -15,9 +16,24 @@
 		</p>
 	</div>
 	<form action="?/login" method="POST" class="max-w-xl mx-auto">
-		<Input name="email" type="text" label="Email" placeholder="Email" required />
+		<Input
+			name="email"
+			type="email"
+			label="Email"
+			placeholder="Email"
+			value={form?.data?.email ?? ""}
+			errors={form?.errors?.email}
+			required
+		/>
 		<!-- value={form?.data?.email ?? ""} -->
-		<Input name="password" type="password" label="Password" placeholder="Password" required />
+		<Input
+			name="password"
+			type="password"
+			label="Password"
+			placeholder="Password"
+			errors={form?.errors?.password}
+			required
+		/>
 
 		<button
 			class="w-full py-2 px-4 border bg-blue-700 rounded text-blue-50 hover:bg-blue-600 transition duration-300"
